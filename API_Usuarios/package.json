@@ -1,0 +1,21 @@
+{
+  "name": "aula_2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon node index.js"
+ },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Atividade legalzinha, Vamu Porr!",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+  
+}
