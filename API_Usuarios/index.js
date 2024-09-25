@@ -46,14 +46,6 @@ app.post("/cadastro", (req, res) => {
         }
     }
 
-    /*cliente.filter((item)=>{
-
-        if(item.id == id){
-
-            return res.status(400).send("O ID ja esta em uso");
-        }
-    });*/
-
     cliente.push(req.body);
 
     console.log(cliente);
@@ -73,12 +65,28 @@ app.get("/cliente/:id([0-9]+)", (req, res) => {
 
 app.get("/consulta", (req, res) => {
 
-    res.status(200).send("Consulta Funciono");
+    res.status(200).send(cliente);
 });
 
-app.delete("cliente/:id([0-9]+)", (req, res)=>{
+app.get("/cliente/:id([0-9]+)", (req, res)=>{
 
     return res.send(req.params.id);
+});
+
+app.delete("/deleta/:id([0-9]+)", (req, res)=>{
+
+    const { id } = req.params;
+
+    const index = cliente.findIndex( item => item.id == id);
+
+    if(index === -1){
+
+        return response.status(400).send("Este id não existe!");
+    }
+
+    cliente.splice(index, 1);
+
+    return res.send(cliente);
 });
 
 app.listen(8080, () => {
