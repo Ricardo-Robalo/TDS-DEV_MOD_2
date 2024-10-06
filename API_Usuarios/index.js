@@ -6,6 +6,7 @@ const app = express();
 
 //Config do body_parse
 const bodyParser = require("body-parser");
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -54,7 +55,7 @@ app.post("/cadastro", (req, res) => {
 
 });
 
-app.get("/cliente/:id([0-9]+)", (req, res) => {
+app.get("/consulta/:id([0-9]+)", (req, res) => {
 
     const { id } = req.params;
 
@@ -68,10 +69,6 @@ app.get("/consulta", (req, res) => {
     res.status(200).send(cliente);
 });
 
-app.get("/cliente/:id([0-9]+)", (req, res)=>{
-
-    return res.send(req.params.id);
-});
 
 app.delete("/deleta/:id([0-9]+)", (req, res)=>{
 
@@ -88,6 +85,22 @@ app.delete("/deleta/:id([0-9]+)", (req, res)=>{
 
     return res.send(cliente);
 });
+
+app.put("/atualizar", (request, response) => {
+
+    const { id, nome, email, senha } = request.body;
+
+    clientes.filter(item => {
+        if (item.id === id){
+             item.nome = nome;
+             item.email = email;
+             item.senha = senha;
+            return response.send("Cliente atualizado com sucesso!")
+        }
+    })
+
+    return response.status(400).send("Cliente não encontrado!");
+})
 
 app.listen(8080, () => {
 
