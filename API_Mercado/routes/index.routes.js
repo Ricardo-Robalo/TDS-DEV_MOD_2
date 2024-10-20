@@ -5,6 +5,6 @@ const clienteRouter = require("./pedido.router");
 
 routes.use("/cliente", clienteRouter);
 routes.use("/produto", clienteRouter);
-routes.use("/pedido", clienteRouter);
+routes.use("/pedido", clienteRouter);   
 
 module.export = routes;
