@@ -1,8 +1,10 @@
-const routes = require ("express").Router();
+const routes = require("express").Router();
+const produtoController = require("../controller/produto.controller");
 
-routes.post("/", ()=>{});
-routes.get("/", ()=>{});
-routes.put("/:id([0-9]+)", ()=>{});
-routes.delete("/:id([0-9]+)", ()=>{});
+routes.post("/", produtoController.cadastro);
+routes.get("/", produtoController.consultar);
+routes.get("/:id([0-9]+)", produtoController.buscaPorId);
+routes.put("/:id([0-9]+)", produtoController.atualizar);
+routes.delete("/:id([0-9]+)", produtoController.deletar);
 
-module.export = routes;
+module.exports = routes;
