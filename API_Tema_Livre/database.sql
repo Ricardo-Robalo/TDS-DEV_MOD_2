@@ -1,0 +1,18 @@
+CREATE DATABASE TL;
+
+USE TL;
+
+CREATE TABLE TL.usuario(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    nick VARCHAR(25) NOT NULL,
+    email VARCHAR(100),
+    pontuacao INT
+);
+
+CREATE TABLE TL.gatinho(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(70) NOT NULL,
+    raridade VARCHAR(30) NOT NULL,
+    valor INT NOT NULL
+);
